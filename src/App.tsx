@@ -18,6 +18,9 @@ function App() {
         >
           Learn React
         </a>
+
+        여기부터 Component를 추가하면 됩니다.
+
       </header>
     </div>
   );
