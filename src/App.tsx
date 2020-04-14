@@ -1,26 +1,23 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import logo from './logo.svg';
 import './App.css';
+import CountrySelector from './components/CountrySelector';
+import {useSelector} from "react-redux";
+import {RootState} from "./reducers";
 
 function App() {
+  const info : any = useSelector((state:RootState) => state.corona.info)
+  useEffect(() => {
+    console.log('app effect [] ')
+    console.log(info);
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-
-        여기부터 Component를 추가하면 됩니다.
-
+        <img src={info ? info.countryInfo.flag : logo} className="App-logo" alt="logo" />
+        {info && info.country}
+        <CountrySelector></CountrySelector>
       </header>
     </div>
   );
