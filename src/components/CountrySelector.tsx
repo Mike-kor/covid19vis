@@ -28,7 +28,7 @@ const CountrySelector: React.FC = () => {
 
   return (
     <div>
-      <select onChange={onChange}>
+      <select onChange={onChange} data-id="test-select">
       { cts && cts.map((ct:any, index:number) => {
             return ct.map(
                 (c : any) =>{
