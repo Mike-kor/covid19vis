@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
-import logo from './logo.svg';
+import React, {useEffect} from "react";
 import './App.css';
 import CountrySelector from './components/CountrySelector';
 import {useSelector} from "react-redux";
 import {RootState} from "./reducers";
+import WorldMap from "./components/WorldMap";
+import CountryCoronaInfo from "./components/CountryCoronaInfo";
+import Layout from "./components/Layout";
 
 function App() {
   const info : any = useSelector((state:RootState) => state.corona.info)
+
   useEffect(() => {
     console.log('app effect [] ')
     console.log(info);
@@ -14,11 +17,10 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={info ? info.countryInfo.flag : logo} className="App-logo" alt="logo" />
-        {info && info.country}
-        <CountrySelector></CountrySelector>
-      </header>
+      <Layout info = {info} />
+      <CountryCoronaInfo info = {info} ></CountryCoronaInfo>
+      <CountrySelector></CountrySelector>
+      <WorldMap></WorldMap>
     </div>
   );
 }
