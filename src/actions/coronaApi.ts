@@ -4,14 +4,14 @@ import { to } from "await-to-js";
 class coronaApi {
     static getCountries = async () => {
         const [err, response] = await to(
-            axios.get(`https://corona.lmao.ninja/countries`)
+            axios.get(`https://corona.lmao.ninja/v2/countries`)
         );
         if ( err ) return 'err';
         return response;
     };
 
     static getCountries2 = () => {
-        axios.get(`https://corona.lmao.ninja/countries`).then(
+        axios.get(`https://corona.lmao.ninja/v2/countries`).then(
             (response)=>{
                 return response.data;
             }
@@ -21,7 +21,7 @@ class coronaApi {
 
     static country = async (country : string) => {
         const [err, response] = await to(
-            axios.get(`https://corona.lmao.ninja/countries/${country}`)
+            axios.get(`https://corona.lmao.ninja/v2/countries/${country}`)
         );
         if ( err ) return 'err';
 
