@@ -4,6 +4,9 @@ import './App.css';
 import CountrySelector from './components/CountrySelector';
 import {useSelector} from "react-redux";
 import {RootState} from "./reducers";
+import WorldMap from "./components/WorldMap";
+import CountryCoronaInfo from "./components/CountryCoronaInfo";
+import Layout from "./components/Layout";
 
 
 function App() {
