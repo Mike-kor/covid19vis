@@ -9,21 +9,21 @@ const CountrySelector: React.FC = () => {
 
   useEffect(() => {
     coronaApi.getCountries().then(
-        (response : any) =>{
+        (response : any) => {
           // TODO : CBV 하면서 배열이 두번 올라감 ㅠㅠ 한단계로 낮춰야됨
           setCts([...cts, response.data]);
         }
     )
   }, []);
 
+
+
   const onChange = (e : any)=>{
     coronaApi.country(e.target.value).then(
         (returnValue : any) => {
           dispatch(setCountry(returnValue));
         }
-
     )
-
   }
 
   return (
